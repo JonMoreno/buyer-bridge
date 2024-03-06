@@ -28,6 +28,6 @@
     Email: admin@example.com Pass: password123
     (This account can open capsules ahead of time)
 
-# Lastly, I would like to just point that there are many additional improvements that we can add to this project and with given time they could be done. I just wanted to get a working model working running for now. I did not too many tests but they can be added if needed.
+### Lastly, I would like to just point that there are many additional improvements that we can add to this project and with given time they could be done. I just wanted to get a working model working running for now. I did not too many tests but they can be added if needed.
 
-# If you need help getting this running let me know I can help. We can also throw this into AWS and get a live version of the project running too.
+### If you need help getting this running let me know I can help. We can also throw this into AWS and get a live version of the project running too.
