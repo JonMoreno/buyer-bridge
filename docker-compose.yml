@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  client:
+    container_name: vue
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    restart: always
+    networks:
+      - laravel
+    depends_on:
+      - mysql
+      - api
+    volumes:
+      - ./client/src:/app/src
+      - /app/node_modules
+
+  api:
+    build: ./api
+    container_name: laravel
+    ports:
+      - 9000:9000
+    restart: always
+    networks:
+      - laravel
+    depends_on:
+      - mysql
+    volumes:
+      - ./api:/var/www/html
+      - /var/www/html/vendor
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    name: laravel
+
+volumes:
+  mysql_data:
